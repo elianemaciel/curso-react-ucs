@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Routes >
         <Route path= "/" element= { <Home />} />
-        <Route path= "/lista-livros" element= { <ListaLivros livros={livros}></ListaLivros>} />
+        <Route path= "/lista-livros" element= { <ListaLivros livros={[]}></ListaLivros>} />
       </ Routes>
     </Router>
   );

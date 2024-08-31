@@ -1,5 +1,5 @@
 import { Navbar } from "../../components/Navbar/Navbar.component"
-import Profile from "../../components/Profile/Profile"
+import Button from '@mui/joy/Button';
 
 
 const Home = () => {
@@ -8,6 +8,7 @@ const Home = () => {
             <Navbar />
             <h1>Bem-vindo ao Sistema!</h1>
             <p>Esta é a página inicial.</p>
+            <Button>Button</Button>
         </div>
     )
 }

@@ -1,5 +1,10 @@
 export default interface Livro {
-    id: string
-    titulo: string
-    autor: string
+    cover: string
+    description: string
+    index: number
+    number: number
+    originalTitle: string
+    pages: number
+    releaseDate: string
+    title: string
 }

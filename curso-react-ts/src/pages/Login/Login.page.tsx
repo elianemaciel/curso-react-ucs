@@ -3,14 +3,28 @@ import Key from '@mui/icons-material/Key';
 import Email from '@mui/icons-material/EmailOutlined'
 import { useState } from 'react';
 import { Box, Button, Container } from '@mui/joy';
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginPage = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
     const handleSubmit = () => {
-        console.log('aqui')
+        // Initialize Firebase Authentication and get a reference to the service
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password).then(
+            // @ts-ignore
+            ( userCredential ) => {
+                const user = userCredential.user;
+                console.log ( user ) ;
+            }).catch (
+                // @ts-ignore
+                ( error ) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log ( "erro" ) ;
+                    console.log ( errorMessage ) ;
+            }) ;
     }
 
     return (

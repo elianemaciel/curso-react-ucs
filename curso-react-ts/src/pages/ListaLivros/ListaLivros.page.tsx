@@ -5,11 +5,27 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore"; 
+import { app } from '../../App'
 
 export const ListaLivros = () => {
   const [livros, setLivros] = useState<Livro[]>()
+
+  const db = getFirestore(app);
+  const handleCreateData = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "livros"), {
+        title: "Aprendendo react",
+        last: "Lovelace",
+        born: 1815
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
   const fetchBooks = useCallback(async () => {
     fetch('https://potterapi-fedeperin.vercel.app/pt/books').then(async (res) => 
       res.json()
@@ -20,6 +36,10 @@ export const ListaLivros = () => {
     })
   }, [])
 
+  useEffect(() => {
+    fetchBooks()
+  }, [])
+
   if (livros?.length === 0) {
     return (
       <div>
@@ -28,10 +48,6 @@ export const ListaLivros = () => {
     )
   }
 
-  useEffect(() => {
-    fetchBooks()
-  }, [])
-  
   return (
     <main>
       <Container>
@@ -57,8 +73,8 @@ export const ListaLivros = () => {
             </div>
           )
         }
-
       </List>
+      <button onClick={handleCreateData}>Adiciona livro</button>
       </Container>
     </main>
   );

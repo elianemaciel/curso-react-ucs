@@ -1,6 +1,7 @@
 import { Password } from "@mui/icons-material";
 import { Container, Input, TextField } from "@mui/joy";
 import React, { useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 interface ICadastroPageProps {}
 
@@ -22,7 +23,19 @@ export const CadastroPage: React.FC<ICadastroPageProps> = (props) => {
     }
   }
 
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, state.email, state.password)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(error)
+      });
+  }
 
   return (
     <main>
@@ -58,7 +71,7 @@ export const CadastroPage: React.FC<ICadastroPageProps> = (props) => {
           {errorPassword ?
           <span style={{ color: 'red'}}>As senhas não são iguais.</span>
           : null}
-
+          <button type={'submit'}>Salvar</button>
         </form>
       </Container>
     </main>

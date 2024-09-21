@@ -26,10 +26,12 @@ export const CadastroPage: React.FC<ICadastroPageProps> = (props) => {
   const handleSubmit = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, state.email, state.password)
+      // @ts-ignore
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
       })
+      // @ts-ignore
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

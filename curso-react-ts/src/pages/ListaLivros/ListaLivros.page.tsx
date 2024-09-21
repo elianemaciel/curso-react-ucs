@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Livro from "../../interfaces/livro.interface";
 import { Container, List } from "@mui/joy";
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import { useCallback, useEffect, useState } from "react";
+import Livro from "../../interfaces/livro.interface";
 
 
 export const ListaLivros = () => {
@@ -20,6 +19,10 @@ export const ListaLivros = () => {
     })
   }, [])
 
+  useEffect(() => {
+    fetchBooks()
+  }, [])
+
   if (livros?.length === 0) {
     return (
       <div>
@@ -27,10 +30,6 @@ export const ListaLivros = () => {
       </div>
     )
   }
-
-  useEffect(() => {
-    fetchBooks()
-  }, [])
   
   return (
     <main>

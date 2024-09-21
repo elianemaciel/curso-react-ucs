@@ -22,7 +22,7 @@ const LoginPage = () => {
                 ( error ) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log ( "erro" ) ;
+                    console.log (errorCode ) ;
                     console.log ( errorMessage ) ;
             }) ;
     }

@@ -39,6 +39,7 @@ export const ListaLivros = () => {
 
   useEffect(() => {
     fetchBooks()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (livros?.length === 0) {

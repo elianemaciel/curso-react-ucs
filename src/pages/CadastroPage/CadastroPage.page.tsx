@@ -1,11 +1,10 @@
-import { Password } from "@mui/icons-material";
-import { Container, Input, TextField } from "@mui/joy";
+import { Container, Input } from "@mui/joy";
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 interface ICadastroPageProps {}
 
-export const CadastroPage: React.FC<ICadastroPageProps> = (props) => {
+export const CadastroPage: React.FC<ICadastroPageProps> = () => {
   const [state , setState] = useState({
     name: '',
     email: '',
@@ -29,12 +28,10 @@ export const CadastroPage: React.FC<ICadastroPageProps> = (props) => {
       // @ts-ignore
       .then((userCredential) => {
         // Signed up 
-        const user = userCredential.user;
+        console.log(userCredential);
       })
       // @ts-ignore
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
         console.log(error)
       });
   }

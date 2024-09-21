@@ -2,7 +2,9 @@
 
 ### Passos:
 
-1. Instalar Firebase CLI
+1. No console do firebase, na aba Hosting crie um novo site.
+
+2. Instalar Firebase CLI
 Se você ainda não tem o Firebase CLI instalado, instale-o globalmente usando o npm:
 
 ```
@@ -15,7 +17,7 @@ Verifique a instalação com o comando:
 firebase --version
 ```
 
-2. Autenticar no Firebase
+3. Autenticar no Firebase
 
 Faça login na sua conta Firebase pelo terminal:
 
@@ -25,7 +27,7 @@ firebase login
 
 Isso abrirá uma janela no navegador para você se autenticar com a sua conta do Google.
 
-3. Criar uma build de produção do React
+4. Criar uma build de produção do React
 
 Crie uma build de produção do seu aplicativo React. No diretório do seu projeto, execute:
 
@@ -35,7 +37,7 @@ npm run build
 ```
 Isso criará uma pasta build com os arquivos otimizados e prontos para o deploy.
 
-4. Iniciar um novo projeto no Firebase
+5. Iniciar um novo projeto no Firebase
 No terminal, navegue até o diretório do projeto React e inicialize o Firebase:
 
 ```
@@ -50,7 +52,7 @@ Diretório público: Defina como build, que é a pasta gerada pelo React.
 Single-page app: Quando perguntado se é uma single-page app (SPA), digite y (yes).
 Configurações de redirecionamento: Escolha "Não" para configurar redirecionamentos automáticos no GitHub, a menos que você tenha essa necessidade.
 
-5. Deploy no Firebase
+6. Deploy no Firebase
 Agora, tudo está configurado para fazer o deploy do seu aplicativo React. No terminal, execute:
 
 ```

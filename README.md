@@ -1,9 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-
-
+# Projeto React exemplo do curso de extenção ministrado na UCS
 
 ## Available Scripts
 

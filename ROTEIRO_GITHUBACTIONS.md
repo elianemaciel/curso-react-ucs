@@ -39,7 +39,7 @@ name: Deploy React App to Firebase
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -52,10 +52,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install firebase
+        run:  npm install -g firebase-tools
 
       - name: Build React App
         run: npm run build
@@ -64,6 +67,7 @@ jobs:
         run: firebase deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
 ```
 5. Commit e Push do Workflow
 Agora que o workflow está configurado, faça o commit e o push do arquivo para o repositório.
